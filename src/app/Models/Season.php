@@ -14,7 +14,7 @@ class Season extends Model
     ];
     protected $table = 'seasons';
     protected $fillable = [
-        'content_s'
+        'name'
     ];
 
     public function product_season()

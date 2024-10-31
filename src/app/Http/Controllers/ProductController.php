@@ -11,9 +11,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('product_season')->get();
-        $product_season = Product_Season::all();
-        return view('products',compact('products', 'product_season'));
+        $products = Product::all();
+        return view('products',['products' => $products]);
     }
 
     public function register()
@@ -23,9 +22,8 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $products = $request->only('content');
+        $products = $request->all();
         Product::create($products);
-
         return redirect('/products');
     }
 

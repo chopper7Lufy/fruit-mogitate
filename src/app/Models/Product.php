@@ -12,9 +12,31 @@ class Product extends Model
         'id',
     ];
     protected $fillable = [
-      'content'
+      'name','price','image','season','description'
     ];
 
+    public function getName()
+    {
+      return  $this->name;
+    }
+    public function getPrice()
+    {
+      return $this->price;
+    }
+    public function getImage()
+    {
+      return $this->image;
+    }
+
+    public function getSeason()
+    {
+      return $this->season;
+    }
+
+    public function getDescription()
+    {
+      return $this->description;
+    }
     public function product_season()
     {
         return $this->hasMany(Product_Season::class);

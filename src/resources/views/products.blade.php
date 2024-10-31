@@ -12,7 +12,7 @@
 <div class="products-form">
     <h2 class="products-form__heading">商品一覧</h2>
     <div class="products-form__inner">
-        <form class="products-search-form" action="/products" method="get">
+        <form class="products-search-form" action="/products/search" method="get">
             @csrf
             <div class="products-search-form___item">
                 <input type="text" class="products-search-form__item-find" name="content" value="{{ old('content') }}" placeholder="商品名で検索">
@@ -36,9 +36,11 @@
             </tr>
             @foreach($products as $product)
             <tr class="admin__row">
-                <td class="admin__data">{{$product->image}}</td>
-                <td class="admin__data">{{$product->name}}</td>
-                <td class="admin__data">{{$product->price}}</td>
+                <td class="admin__data">{{$product->getName()}}</td>
+                <td class="admin__data">{{$product->getPrice()}}</td>
+                <td class="admin__data">{{$product->getImage()}}</td>
+                <td class="admin__data">{{$product->getSeason()}}</td>
+                <td class="admin__data">{{$product->getDescription()}}</td>
             </tr>
             @endforeach
         </table>
